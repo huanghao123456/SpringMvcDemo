@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <form class="form-sign" th:action="@{/login}">
+        <h2 class="h3 mb-3 font-weight-normal">请登录</h2>
+        <p style="color: red" th:text="${loginFailedMsg}" th:if="${loginFailedMsg == '请先登录！'}"></p>
+        <input type="text" name="userName" class="form-control"> <br/>
+        <input type="password" name="passWord" class="form-control"> <br/> <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+
+    <div th:if="${loginFailedMsg == '账号密码错误！'}">
+        <script>
+            alert("账号密码错误！")
+        </script>
+    </div>
+</body>
+</html>

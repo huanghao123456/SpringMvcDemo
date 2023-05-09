@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <script>
+        function downloadFileByOpen(fileName) {
+            window.open("http://127.0.0.1:8080/download/hutool?fileName=" + fileName);
+        }
+    </script>
+</head>
+
+<body>
+<h3>后端hutool + 前端open方式</h3>
+<div th:if="${fileNames} == null">没有文件可下载</div>
+<ul>
+    <li th:each="fileName : ${fileNames}" th:text="${fileName} + '  下载'" th:onclick="downloadFileByOpen([[${fileName}]])">
+    </li>
+</ul>
+
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件</title>
+</head>
+<body>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <p><input type="file" name="file"></p>
+        <input type="submit" value="上传文件">
+    </form>
+
+    <br/>
+
+    <form method="get" action="/goDownload">
+        <input type="submit" value="去下载">
+    </form>
+
+    <div th:if="${uploadMsg == '文件上传成功！'}">
+        <script>
+            alert("文件上传成功！")
+        </script>
+    </div>
+    <div th:if="${uploadMsg == '上传失败，请选择文件！'}">
+        <script>
+            alert("上传失败，请选择文件！")
+        </script>
+    </div>
+    <div th:if="${uploadMsg == '文件上传失败！'}">
+        <script>
+            alert("文件上传失败！")
+        </script>
+    </div>
+
+</body>
+</html>
